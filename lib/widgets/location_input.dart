@@ -1,7 +1,9 @@
+import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
+import 'package:http/http.dart' as http;
 
 class LocationInput extends StatefulWidget {
   const LocationInput({super.key});
@@ -42,6 +44,14 @@ class _LocationInputState extends State<LocationInput> {
     });
 
     locationData = await location.getLocation();
+    // Nefunguje bez API kliče
+    //final lat = locationData.latitude;
+    // final long = locationData.longitude;
+
+    // final urt = Uri.parse('maps.google...');
+    // final response = await http.get(url);
+    // final resData = json.decode(response.body);
+    // final address = resData['results'][0]['formatted_address'];
 
     setState(() {
       _isGettingLocation = false;
